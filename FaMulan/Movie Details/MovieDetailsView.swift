@@ -14,8 +14,12 @@ class MovieDetailsView: UIView {
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
+
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
+
+        tableView.registerCell(of: SimilarMovieCell.self)
+
         tableView.delegate = self
         tableView.dataSource = self
 
@@ -42,6 +46,6 @@ extension MovieDetailsView: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        return tableView.dequeueCell(of: SimilarMovieCell.self, forIndexPath: viewModel.similarMovie(for: indexPath.row))
     }
 }
