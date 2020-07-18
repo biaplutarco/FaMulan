@@ -32,10 +32,41 @@ class MovieDetailsView: UIView {
         self.viewModel = viewModel
 
         super.init(frame: frame)
+
+        setupView()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    private func setupView() {
+
+        backgroundColor = .black
+
+        addSubview(imageView)
+        addSubview(tableView)
+
+        constraints()
+    }
+
+    private func constraints(){
+
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+
+            imageView.topAnchor.constraint(equalTo: topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            imageView.bottomAnchor.constraint(equalTo: tableView.topAnchor),
+
+            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            tableView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5)
+        ])
     }
 }
 
