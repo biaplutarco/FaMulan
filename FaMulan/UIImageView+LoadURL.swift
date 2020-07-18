@@ -11,16 +11,25 @@ import UIKit
 extension UIImageView {
 
     func load(path: String) {
- 
-        DispatchQueue.global().async { [weak self] in
 
-            if let data = try? Data(contentsOf: Constants.TMDB.imageBaseURL.appendingPathComponent(path)) {
+        let imageCache = NSCache<NSString, UIImage>()
 
-                if let image = UIImage(data: data) {
+        if let cachedImage = imageCache.object(forKey: path as NSString) {
+            
+            self.image = cachedImage
+        }  else {
 
-                    DispatchQueue.main.async {
+            DispatchQueue.global().async { [weak self] in
 
-                        self?.image = image
+                if let data = try? Data(contentsOf: Constants.TMDB.imageBaseURL.appendingPathComponent(path)) {
+
+                    if let image = UIImage(data: data) {
+
+                        imageCache.setObject(image, forKey: path as NSString)
+
+                        DispatchQueue.main.async {
+                            self?.image = image
+                        }
                     }
                 }
             }
