@@ -47,7 +47,18 @@ class MovieDetailsView: UIView {
         addSubview(imageView)
         addSubview(tableView)
 
+        setupImageView()
         constraints()
+    }
+
+    private func setupImageView() {
+
+        imageView.fadingGradient(with: .black, at: frame)
+
+        viewModel.image {
+
+            self.imageView = $0
+        }
     }
 
     private func constraints(){
