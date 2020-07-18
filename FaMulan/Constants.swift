@@ -24,5 +24,15 @@ struct Constants {
 
             return url
         }
+
+        static var imageBaseURL: URL {
+
+            guard let url = URL(string: "https://image.tmdb.org/t/p/original") else {
+
+                fatalError("Error to convert string url to URL")
+            }
+
+            return url
+        }
     }
 }
