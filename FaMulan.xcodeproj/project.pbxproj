@@ -198,10 +198,34 @@
 		27C69F4724C38ADF000591F4 /* Movie Details */ = {
 			isa = PBXGroup;
 			children = (
-				276B603124C2826D008310F7 /* ViewController.swift */,
-				27C69F4524C38AC4000591F4 /* MovieDetailsView.swift */,
+				27C69F4A24C38FE2000591F4 /* Controller */,
+				27C69F4B24C38FED000591F4 /* Views */,
+				27C69F4C24C38FFA000591F4 /* ViewModels */,
 			);
 			path = "Movie Details";
+			sourceTree = "<group>";
+		};
+		27C69F4A24C38FE2000591F4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				276B603124C2826D008310F7 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		27C69F4B24C38FED000591F4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				27C69F4524C38AC4000591F4 /* MovieDetailsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		27C69F4C24C38FFA000591F4 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

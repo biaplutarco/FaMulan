@@ -23,6 +23,11 @@ class ViewController: UIViewController {
                 print(error.localizedDescription)
             case .success(let movie):
                 movies.append(movie)
+                
+                let image = UIImageView()
+                image.load(path: movie.posterPath!)
+                image.fadingGradient(with: .black, at: self.view.frame)
+                self.view = image
             }
         }
     }
