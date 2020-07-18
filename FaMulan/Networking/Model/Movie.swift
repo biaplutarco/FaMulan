@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Movie: Codable, Equatable {
+struct Movie: Codable {
 
     var id: Int
     var title: String
@@ -27,9 +27,5 @@ struct Movie: Codable, Equatable {
         case releaseDate = "release_date"
         case voteCount = "vote_count"
         case genres
-    }
-
-    static func == (lhs: Movie, rhs: Movie) -> Bool {
-        return lhs.id == rhs.id
     }
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Genre: Codable, Equatable {
+struct Genre: Codable {
 
     var id: Int
     var name: String
@@ -17,9 +17,5 @@ struct Genre: Codable, Equatable {
 
         case id
         case name
-    }
-
-    static func == (lhs: Genre, rhs: Genre) -> Bool {
-        return lhs.id == rhs.id
     }
 }
