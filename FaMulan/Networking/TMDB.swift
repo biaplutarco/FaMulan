@@ -18,7 +18,7 @@ enum TMDB {
 enum MovieFetchOptions {
 
     case details(id: String)
-    case similarMovies(id: String)
+    case similarMovies(to: String)
 }
 
 extension TMDB: TargetType {
