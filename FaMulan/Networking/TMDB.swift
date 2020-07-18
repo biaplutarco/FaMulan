@@ -10,9 +10,6 @@ import Foundation
 import Moya
 
 enum TMDB {
-  
-    static private let privateKey = "7d14bbcb6a18a806a18d9a4597f450b1"
-    static let mulanID = "10674"
 
     case genreList
     case movie(MovieFetchOptions)
@@ -27,7 +24,7 @@ enum MovieFetchOptions {
 extension TMDB: TargetType {
 
     public var baseURL: URL {
-        return URL(string: "https://api.themoviedb.org/3")!
+        return Constants.TMDB.baseURL
     }
 
     public var path: String {
@@ -61,7 +58,7 @@ extension TMDB: TargetType {
     }
 
     public var task: Task {
-        return .requestParameters(parameters: ["api_key": TMDB.privateKey], encoding: URLEncoding.default)
+        return .requestParameters(parameters: ["api_key": Constants.TMDB.privateKey], encoding: URLEncoding.default)
     }
 
     public var headers: [String : String]? {
