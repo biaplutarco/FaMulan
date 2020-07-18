@@ -104,8 +104,8 @@
 				276B602D24C2826D008310F7 /* AppDelegate.swift */,
 				276B602F24C2826D008310F7 /* SceneDelegate.swift */,
 				276B603124C2826D008310F7 /* ViewController.swift */,
-				27C85DF824C35AC700A79007 /* Constants.swift */,
-				27C69F3F24C37092000591F4 /* UIImageView+LoadURL.swift */,
+				27C69F4224C37E7B000591F4 /* Utils */,
+				27C69F4124C37E6F000591F4 /* Extention */,
 				27C69F3C24C36B0F000591F4 /* Models */,
 				276B605B24C295FB008310F7 /* Networking */,
 				276B603924C28271008310F7 /* Assets.xcassets */,
@@ -169,6 +169,22 @@
 				27C69F3A24C36876000591F4 /* GerneDataRepository.swift */,
 			);
 			path = Repositorys;
+			sourceTree = "<group>";
+		};
+		27C69F4124C37E6F000591F4 /* Extention */ = {
+			isa = PBXGroup;
+			children = (
+				27C69F3F24C37092000591F4 /* UIImageView+LoadURL.swift */,
+			);
+			path = Extention;
+			sourceTree = "<group>";
+		};
+		27C69F4224C37E7B000591F4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				27C85DF824C35AC700A79007 /* Constants.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
