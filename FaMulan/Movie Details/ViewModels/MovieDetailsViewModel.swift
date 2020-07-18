@@ -6,37 +6,38 @@
 //  Copyright © 2020 Bia Plutarco. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class MovieDetailsViewModel {
 
-    var image: UIImage? {
-        didSet {
-            reloadImage?()
+    private let repository: MovieDataRepository
+
+    private var posterPath: String = ""
+    private var similarMovies = [Movie]()
+
+    init(repository: MovieDataRepository = MovieDataRepository()) {
+        self.repository = repository
+    }
+
+    func loadMulanDetails() {
+
+        repository.loadDetails(of: Constants.TMDB.mulanID) { result in
+
+            switch result {
+
+            case .failure(let error):
+                print(error.localizedDescription)
+
+            case .success(let movie):
+            }
         }
     }
-     
-    var reloadImage: (() -> Void)?
-    
-    init(item: Icon) {
-        
-        self.title = item.title
-        self.subtitle = item.subtitle
-        self.imagePath = item.image
-        
-        getImage()
-    }
-    
-    func getImage() {
-        
-        APIProvider.downloadImage(url: URL(string: imagePath)!) { (image, error) in
-            
-            if let image = image {
-                self.image = image
-            
-            } else {
-                print(error?.localizedDescription as Any)
-            }
+
+    func loadMoviePoster(completion: @escaping ((UIImage) -> Void)) {
+
+        repository.loadMoviePoster(path: posterPath) { image in
+
+            completion(image)
         }
     }
 }

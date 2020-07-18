@@ -55,10 +55,21 @@ class MovieDetailsView: UIView {
 
         imageView.fadingGradient(with: .black, at: frame)
 
-        viewModel.image {
+        viewModel.loadMoviePoster { image in
 
-            self.imageView = $0
+            DispatchQueue.main.async {
+            
+                self.imageView.image = image
+            }
         }
+
+//        viewModel.loadImage = {
+//
+//            DispatchQueue.main.async {
+//
+//                self.imageView.image = self.viewModel.image
+//            }
+//        }
     }
 
     private func constraints(){
