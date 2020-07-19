@@ -91,7 +91,6 @@ class MovieDetailsView: UIView {
 extension MovieDetailsView: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(viewModel.numberOfRows)
         return viewModel.numberOfRows
     }
 
@@ -99,7 +98,7 @@ extension MovieDetailsView: UITableViewDelegate, UITableViewDataSource {
 
         let cell = tableView.dequeueCell(of: SimilarMovieCell.self, forIndexPath: indexPath)
         cell.viewModel = viewModel.similarMovieViewModel(for: indexPath.row)
-        
+
         return cell
     }
 
@@ -109,5 +108,13 @@ extension MovieDetailsView: UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+
+    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 44.0
     }
 }

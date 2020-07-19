@@ -10,13 +10,14 @@ import UIKit
 
 class MovieDetailsHeaderView: UIView {
 
-    private var titleLabel = UILabel()
-    private var likesLabel = UILabel()
-    private var popularityLabel = UILabel()
+    private var titleLabel = UILabel(size: 36, bold: true)
+    private var likesLabel = UILabel(size: 14, bold: false)
+    private var popularityLabel = UILabel(size: 14, bold: false)
 
     private lazy var secondaryLabelStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [likesLabel, popularityLabel])
         stackView.axis = .horizontal
+        stackView.spacing = 2
 
         return stackView
     }()
@@ -65,7 +66,6 @@ class MovieDetailsHeaderView: UIView {
 
             primaryLabelStackView.topAnchor.constraint(equalTo: topAnchor),
             primaryLabelStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
-            primaryLabelStackView.trailingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
             primaryLabelStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
         ])
     }
