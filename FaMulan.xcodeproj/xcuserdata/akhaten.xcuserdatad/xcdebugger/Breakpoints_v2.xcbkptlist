@@ -7,32 +7,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "87873942-D2C6-47BC-8145-59A2CD0DCAB9"
+            uuid = "89AC48AA-4797-4DD5-A813-72C724AF42B3"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FaMulan/Movie Details/ViewModels/MovieDetailsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "similarMovieViewModel(for:)"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "loadSimilarMovies()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "68ABF3F7-52F9-49E2-BF75-4A3E4738AEB5"
+            uuid = "C6CFE51B-4267-46E6-916D-62402486621A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FaMulan/Movie Details/ViewModels/MovieDetailsViewModel.swift"
+            filePath = "FaMulan/Networking/Logic/Provider.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "headerViewMovel()"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "request(target:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C15A1E9F-D555-4C7C-810F-1D28BA3E9BFA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FaMulan/Networking/Logic/Provider.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "request(target:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

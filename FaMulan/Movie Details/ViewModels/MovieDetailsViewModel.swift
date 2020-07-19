@@ -12,7 +12,7 @@ class MovieDetailsViewModel {
 
     private let repository: MovieDataRepository
 
-    private var similarMovies = [Movie]()
+    private var similarMovies = [SimilarMovie]()
     private var mulan: Movie?
 
     var image: UIImage? {
@@ -60,8 +60,8 @@ class MovieDetailsViewModel {
             case .failure(let error):
                 print(error.localizedDescription)
 
-            case .success(let movies):
-                self.similarMovies = movies
+            case .success(let movie):
+                self.similarMovies = movie.similarMovies
             }
         }
     }

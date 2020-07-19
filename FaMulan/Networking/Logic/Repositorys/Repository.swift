@@ -10,11 +10,11 @@ import UIKit
 
 protocol MovieRepository {
 
-    func loadDetails(of movieID: String, completion: @escaping(Result<Movie,APIError>) -> Void)
-    func loadMoviesSimilar(to movieID: String, completion: @escaping(Result<[Movie],APIError>) -> Void)
+    func loadDetails(of movieID: String, completion: @escaping(Result<Movie, APIError>) -> Void)
+    func loadMoviesSimilar(to movieID: String, completion: @escaping(Result<SimilarMovies, APIError>) -> Void)
     func loadMoviePoster(path: String, completion: @escaping(UIImage) -> Void)
 }
 
 protocol GenreRepository {
-    func loadGernes(completion: @escaping(Result<[Genre],APIError>) -> Void)
+    func loadGernes(completion: @escaping(Result<[Genre], APIError>) -> Void)
 }

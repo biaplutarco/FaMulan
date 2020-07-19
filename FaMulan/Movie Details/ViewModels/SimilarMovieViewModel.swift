@@ -12,7 +12,7 @@ class SimilarMovieViewModel {
 
     private let repository: MovieDataRepository
 
-    private var movie: Movie
+    private var movie: SimilarMovie
 
     var title: String {
         return movie.title
@@ -24,12 +24,12 @@ class SimilarMovieViewModel {
 
     var genres: String {
 
-        let names = movie.genres.map { $0.name }
+        let names = movie.genresID.map { String($0) }
 
         return names.joined(separator: ", ")
     }
 
-    init(_ movie: Movie, repository: MovieDataRepository = MovieDataRepository()) {
+    init(_ movie: SimilarMovie, repository: MovieDataRepository = MovieDataRepository()) {
 
         self.repository = repository
         self.movie = movie

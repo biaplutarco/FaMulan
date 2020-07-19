@@ -27,6 +27,7 @@
 		27C69F5224C3C9B6000591F4 /* SimilarMovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C69F5124C3C9B6000591F4 /* SimilarMovieViewModel.swift */; };
 		27C69F5424C3CD87000591F4 /* MovieDetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C69F5324C3CD87000591F4 /* MovieDetailsHeaderView.swift */; };
 		27C69F5624C3CE88000591F4 /* MovieDetailsHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C69F5524C3CE88000591F4 /* MovieDetailsHeaderViewModel.swift */; };
+		27C69F5824C3D6E4000591F4 /* SimilarMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C69F5724C3D6E4000591F4 /* SimilarMovies.swift */; };
 		27C85DF924C35AC700A79007 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C85DF824C35AC700A79007 /* Constants.swift */; };
 		27C85DFB24C35FC600A79007 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C85DFA24C35FC600A79007 /* Repository.swift */; };
 		27C85DFD24C360CC00A79007 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C85DFC24C360CC00A79007 /* APIError.swift */; };
@@ -68,6 +69,7 @@
 		27C69F5124C3C9B6000591F4 /* SimilarMovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarMovieViewModel.swift; sourceTree = "<group>"; };
 		27C69F5324C3CD87000591F4 /* MovieDetailsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsHeaderView.swift; sourceTree = "<group>"; };
 		27C69F5524C3CE88000591F4 /* MovieDetailsHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsHeaderViewModel.swift; sourceTree = "<group>"; };
+		27C69F5724C3D6E4000591F4 /* SimilarMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarMovies.swift; sourceTree = "<group>"; };
 		27C85DF824C35AC700A79007 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		27C85DFA24C35FC600A79007 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		27C85DFC24C360CC00A79007 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			children = (
 				276B605D24C29616008310F7 /* Movie.swift */,
 				276B605F24C29865008310F7 /* Genre.swift */,
+				27C69F5724C3D6E4000591F4 /* SimilarMovies.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				27C69F5224C3C9B6000591F4 /* SimilarMovieViewModel.swift in Sources */,
 				276B602E24C2826D008310F7 /* AppDelegate.swift in Sources */,
 				276B606024C29865008310F7 /* Genre.swift in Sources */,
+				27C69F5824C3D6E4000591F4 /* SimilarMovies.swift in Sources */,
 				27C85DF924C35AC700A79007 /* Constants.swift in Sources */,
 				276B606224C29923008310F7 /* TMDB.swift in Sources */,
 				27C69F4424C38167000591F4 /* UIImageView+FadingGradient.swift in Sources */,
