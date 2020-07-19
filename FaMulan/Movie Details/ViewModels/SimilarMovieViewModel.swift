@@ -22,8 +22,8 @@ class SimilarMovieViewModel {
         return similarMovie.title
     }
 
-    var releaseDate: String {
-        return similarMovie.releaseDate
+    var releaseYear: String {
+        return String(similarMovie.releaseDate.prefix(4))
     }
 
     var genres: String? {

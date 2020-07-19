@@ -59,7 +59,7 @@ class SimilarMovieCell: UITableViewCell {
     func setupLabels() {
 
         titleLabel.text = viewModel?.title
-        releaseDateLabel.text = viewModel?.releaseDate
+        releaseDateLabel.text = viewModel?.releaseYear
         genresLabel.text = viewModel?.genres
     }
 
