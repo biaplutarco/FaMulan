@@ -20,6 +20,8 @@ class SimilarMovieCell: UITableViewCell {
         let stackView = UIStackView(arrangedSubviews: [releaseDateLabel, genresLabel])
         stackView.axis = .horizontal
         stackView.spacing = 8
+        stackView.distribution = .fill
+        stackView.alignment = .leading
 
         return stackView
     }()
@@ -27,8 +29,8 @@ class SimilarMovieCell: UITableViewCell {
     private lazy var primaryLabelStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [titleLabel, secondaryLabelStackView])
         stackView.axis = .vertical
-        stackView.distribution = .fillProportionally
         stackView.spacing = 6
+        stackView.alignment = .leading
 
         return stackView
     }()
@@ -89,11 +91,11 @@ class SimilarMovieCell: UITableViewCell {
 
             posterImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
             posterImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            posterImageView.trailingAnchor.constraint(equalTo: primaryLabelStackView.leadingAnchor, constant: -8),
             posterImageView.heightAnchor.constraint(equalToConstant: 70),
             posterImageView.widthAnchor.constraint(equalToConstant: 60),
 
-            primaryLabelStackView.centerYAnchor.constraint(equalTo: centerYAnchor)
+            primaryLabelStackView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            primaryLabelStackView.leadingAnchor.constraint(equalTo: posterImageView.trailingAnchor, constant: 16)
         ])
     }
 }
