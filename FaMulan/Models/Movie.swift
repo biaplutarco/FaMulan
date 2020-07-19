@@ -14,9 +14,7 @@ struct Movie: Codable {
     var title: String
     var posterPath: String?
     var popularity: Double
-    var releaseDate: String
     var voteCount: Int
-    var genres: [Genre]
 
     enum CodingKeys: String, CodingKey {
 
@@ -24,8 +22,6 @@ struct Movie: Codable {
         case title
         case posterPath = "poster_path"
         case popularity
-        case releaseDate = "release_date"
         case voteCount = "vote_count"
-        case genres
     }
 }

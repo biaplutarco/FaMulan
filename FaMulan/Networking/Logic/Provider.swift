@@ -6,7 +6,7 @@
 //  Copyright © 2020 Bia Plutarco. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import Moya
 
 class Provider<Target: TargetType> {
@@ -35,6 +35,35 @@ class Provider<Target: TargetType> {
 
             case .failure:
                 return completion(Result.failure(APIError.unknown))
+            }
+        }
+    }
+
+    func requestMoviePoster(path: String, completion: @escaping (UIImage) -> Void) {
+
+       let imageCache = NSCache<NSString, UIImage>()
+
+        if let cachedImage = imageCache.object(forKey: path as NSString) {
+
+            completion(cachedImage)
+        }  else {
+
+            DispatchQueue.global().async {
+
+                do {
+
+                    let data = try Data(contentsOf: Constants.TMDB.imageBaseURL.appendingPathComponent(path))
+
+                        if let image = UIImage(data: data) {
+
+                            imageCache.setObject(image, forKey: path as NSString)
+
+                            completion(image)
+                        }
+                } catch {
+
+                    print(error.localizedDescription)
+                }
             }
         }
     }

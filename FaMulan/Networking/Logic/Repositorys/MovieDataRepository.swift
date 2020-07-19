@@ -6,7 +6,7 @@
 //  Copyright © 2020 Bia Plutarco. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import Moya
 
 struct MovieDataRepository: MovieRepository {
@@ -21,8 +21,12 @@ struct MovieDataRepository: MovieRepository {
     func loadDetails(of movieID: String, completion: @escaping (Result<Movie, APIError>) -> Void) {
         provider.request(target: .movie(.details(id: movieID)), completion: completion)
     }
-    
-    func loadMoviesSimilar(to movieID: String, completion: @escaping (Result<Movie, APIError>) -> Void) {
+
+    func loadMoviesSimilar(to movieID: String, completion: @escaping (Result<SimilarMovies, APIError>) -> Void) {
         provider.request(target: .movie(.similarMovies(to: movieID)), completion: completion)
+    }
+
+    func loadMoviePoster(path: String, completion: @escaping (UIImage) -> Void) {
+        provider.requestMoviePoster(path: path, completion: completion)
     }
 }
