@@ -27,7 +27,7 @@ struct Constants {
 
         static var imageBaseURL: URL {
 
-            guard let url = URL(string: "https://image.tmdb.org/t/p/original") else {
+            guard let url = URL(string: "https://image.tmdb.org/t/p/w500") else {
 
                 fatalError("Error to convert string url to URL")
             }

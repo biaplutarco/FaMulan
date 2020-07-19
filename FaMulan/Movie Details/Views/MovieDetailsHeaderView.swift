@@ -45,6 +45,8 @@ class MovieDetailsHeaderView: UIView {
     
     private func setupView() {
 
+        backgroundColor = .black
+
         addSubview(primaryLabelStackView)
 
         setupLabels()

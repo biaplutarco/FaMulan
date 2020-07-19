@@ -41,23 +41,28 @@ class Provider<Target: TargetType> {
 
     func requestMoviePoster(path: String, completion: @escaping (UIImage) -> Void) {
 
-        let imageCache = NSCache<NSString, UIImage>()
+       let imageCache = NSCache<NSString, UIImage>()
 
         if let cachedImage = imageCache.object(forKey: path as NSString) {
-            
+
             completion(cachedImage)
         }  else {
 
             DispatchQueue.global().async {
 
-                if let data = try? Data(contentsOf: Constants.TMDB.imageBaseURL.appendingPathComponent(path)) {
+                do {
 
-                    if let image = UIImage(data: data) {
+                    let data = try Data(contentsOf: Constants.TMDB.imageBaseURL.appendingPathComponent(path))
 
-                        imageCache.setObject(image, forKey: path as NSString)
+                        if let image = UIImage(data: data) {
 
-                        completion(image)
-                    }
+                            imageCache.setObject(image, forKey: path as NSString)
+
+                            completion(image)
+                        }
+                } catch {
+
+                    print(error.localizedDescription)
                 }
             }
         }
