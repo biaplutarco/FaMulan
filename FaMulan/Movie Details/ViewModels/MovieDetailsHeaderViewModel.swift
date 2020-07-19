@@ -17,11 +17,11 @@ class MovieDetailsHeaderViewModel {
     }
 
     var likes: String {
-        return String(movie.voteCount)
+        return String(movie.voteCount) + " likes"
     }
 
     var popularity: String {
-        return String(movie.popularity) + "views"
+        return String(movie.popularity) + " views"
     }
 
     init(_ movie: Movie) {

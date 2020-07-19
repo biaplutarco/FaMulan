@@ -11,13 +11,14 @@ import UIKit
 class MovieDetailsHeaderView: UIView {
 
     private var titleLabel = UILabel(size: 36, bold: true)
-    private var likesLabel = UILabel(size: 14, bold: false)
-    private var popularityLabel = UILabel(size: 14, bold: false)
+    private var likesView = IconSubtitleView()
+    private var popularityView = IconSubtitleView()
 
     private lazy var secondaryLabelStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [likesLabel, popularityLabel])
+        let stackView = UIStackView(arrangedSubviews: [likesView, popularityView])
         stackView.axis = .horizontal
-        stackView.spacing = 2
+        stackView.spacing = 32
+        stackView.distribution = .fill
 
         return stackView
     }()
@@ -27,6 +28,7 @@ class MovieDetailsHeaderView: UIView {
     private lazy var primaryLabelStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [titleLabel, secondaryLabelStackView])
         stackView.axis = .vertical
+        stackView.spacing = 15
 
         return stackView
     }()
@@ -49,15 +51,16 @@ class MovieDetailsHeaderView: UIView {
 
         addSubview(primaryLabelStackView)
 
-        setupLabels()
+        setupData()
         constraints()
     }
 
-    func setupLabels() {
+    func setupData() {
 
         titleLabel.text = viewModel?.title
-        likesLabel.text = viewModel?.likes
-        popularityLabel.text = viewModel?.popularity
+
+        likesView.setupView(with: UIImage.init(named: "heart-fill"), title: viewModel?.likes)
+        popularityView.setupView(with: UIImage.init(named: "views"), title: viewModel?.popularity)
     }
 
     private func constraints() {
@@ -68,7 +71,7 @@ class MovieDetailsHeaderView: UIView {
 
             primaryLabelStackView.topAnchor.constraint(equalTo: topAnchor),
             primaryLabelStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
-            primaryLabelStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
+            primaryLabelStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -24)
         ])
     }
 }
