@@ -12,13 +12,14 @@ class SimilarMovieCell: UITableViewCell {
 
     private var posterImageView = UIImageView()
 
-    private var titleLabel = UILabel(size: 16, bold: true)
-    private var releaseDateLabel = UILabel(size: 14, bold: false)
-    private var genresLabel = UILabel(size: 14, bold: false)
+    private var titleLabel = UILabel(size: 18, bold: true)
+    private var releaseDateLabel = UILabel(size: 16, bold: false)
+    private var genresLabel = UILabel(size: 16, bold: false)
 
     private lazy var secondaryLabelStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [releaseDateLabel, genresLabel])
         stackView.axis = .horizontal
+        stackView.spacing = 8
 
         return stackView
     }()
@@ -26,6 +27,8 @@ class SimilarMovieCell: UITableViewCell {
     private lazy var primaryLabelStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [titleLabel, secondaryLabelStackView])
         stackView.axis = .vertical
+        stackView.distribution = .fillProportionally
+        stackView.spacing = 6
 
         return stackView
     }()
@@ -41,7 +44,7 @@ class SimilarMovieCell: UITableViewCell {
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+        super.setSelected(selected, animated: false)
     }
 
     private func setupView() {
@@ -65,7 +68,8 @@ class SimilarMovieCell: UITableViewCell {
 
     func setupImageView() {
 
-        posterImageView.contentMode = .scaleAspectFit
+        posterImageView.contentMode = .scaleAspectFill
+        posterImageView.layer.masksToBounds = true
 
         viewModel?.loadMoviePoster { image in
 
@@ -83,11 +87,11 @@ class SimilarMovieCell: UITableViewCell {
 
         NSLayoutConstraint.activate([
 
-            posterImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            posterImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
             posterImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             posterImageView.trailingAnchor.constraint(equalTo: primaryLabelStackView.leadingAnchor, constant: -8),
             posterImageView.heightAnchor.constraint(equalToConstant: 70),
-            posterImageView.widthAnchor.constraint(equalTo: posterImageView.heightAnchor),
+            posterImageView.widthAnchor.constraint(equalToConstant: 60),
 
             primaryLabelStackView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])

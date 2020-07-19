@@ -21,7 +21,7 @@ class MovieDetailsHeaderViewModel {
     }
 
     var popularity: String {
-        return String(movie.popularity)
+        return String(movie.popularity) + "views"
     }
 
     init(_ movie: Movie) {

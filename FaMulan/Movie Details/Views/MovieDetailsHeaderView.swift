@@ -67,7 +67,7 @@ class MovieDetailsHeaderView: UIView {
         NSLayoutConstraint.activate([
 
             primaryLabelStackView.topAnchor.constraint(equalTo: topAnchor),
-            primaryLabelStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
+            primaryLabelStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
             primaryLabelStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
         ])
     }
