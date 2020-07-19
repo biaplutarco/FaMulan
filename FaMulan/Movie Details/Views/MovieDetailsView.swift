@@ -53,6 +53,7 @@ class MovieDetailsView: UIView {
 
     private func setupImageView() {
 
+        imageView.contentMode = .scaleAspectFill
         imageView.fadingGradient(with: .black,
                                  at: CGRect(origin: frame.origin,
                                             size: CGSize(width: frame.width, height: frame.height/2)))
@@ -104,5 +105,9 @@ extension MovieDetailsView: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return MovieDetailsHeaderView(viewModel: viewModel.headerViewMovel())
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
 }

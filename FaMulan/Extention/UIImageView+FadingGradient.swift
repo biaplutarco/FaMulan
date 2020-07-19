@@ -14,8 +14,8 @@ extension UIImageView {
 
         let gradientMaskLayer = CAGradientLayer()
         gradientMaskLayer.frame = frame
-        gradientMaskLayer.colors = [color.cgColor, UIColor.clear.cgColor]
-        gradientMaskLayer.locations = [0, 1]
+        gradientMaskLayer.colors = [UIColor.clear.cgColor, color.cgColor, UIColor.clear.cgColor]
+        gradientMaskLayer.locations = [0, 0.15, 0.95, 1]
 
         layer.mask = gradientMaskLayer
     }
