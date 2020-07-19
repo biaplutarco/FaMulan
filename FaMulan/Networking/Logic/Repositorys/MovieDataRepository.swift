@@ -27,6 +27,6 @@ struct MovieDataRepository: MovieRepository {
     }
 
     func loadMoviePoster(path: String, completion: @escaping (UIImage) -> Void) {
-        provider.requestMoviePoster(path: path, completion: completion)
+        ImageCache.shared.requestMoviePoster(path: path, completion: completion)
     }
 }
