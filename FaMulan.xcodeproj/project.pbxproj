@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2753C15224C49F5A001419A3 /* Genres.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2753C15124C49F5A001419A3 /* Genres.swift */; };
 		2753C15424C4C110001419A3 /* IconSubtitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2753C15324C4C110001419A3 /* IconSubtitleView.swift */; };
+		275832AA24C4EC2100DD1484 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275832A924C4EC2100DD1484 /* ImageCache.swift */; };
 		276B602E24C2826D008310F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276B602D24C2826D008310F7 /* AppDelegate.swift */; };
 		276B603024C2826D008310F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276B602F24C2826D008310F7 /* SceneDelegate.swift */; };
 		276B603224C2826D008310F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276B603124C2826D008310F7 /* ViewController.swift */; };
@@ -51,6 +52,7 @@
 /* Begin PBXFileReference section */
 		2753C15124C49F5A001419A3 /* Genres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genres.swift; sourceTree = "<group>"; };
 		2753C15324C4C110001419A3 /* IconSubtitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSubtitleView.swift; sourceTree = "<group>"; };
+		275832A924C4EC2100DD1484 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		276B602A24C2826D008310F7 /* FaMulan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaMulan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		276B602D24C2826D008310F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		276B602F24C2826D008310F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				27C85E0024C362E400A79007 /* Provider.swift */,
+				275832A924C4EC2100DD1484 /* ImageCache.swift */,
 				27C69F3E24C36B4D000591F4 /* Repositorys */,
 			);
 			path = Logic;
@@ -380,6 +383,7 @@
 				276B603224C2826D008310F7 /* ViewController.swift in Sources */,
 				27C69F4E24C390E7000591F4 /* MovieDetailsViewModel.swift in Sources */,
 				27C69F5224C3C9B6000591F4 /* SimilarMovieViewModel.swift in Sources */,
+				275832AA24C4EC2100DD1484 /* ImageCache.swift in Sources */,
 				276B602E24C2826D008310F7 /* AppDelegate.swift in Sources */,
 				2753C15424C4C110001419A3 /* IconSubtitleView.swift in Sources */,
 				276B606024C29865008310F7 /* Genre.swift in Sources */,
