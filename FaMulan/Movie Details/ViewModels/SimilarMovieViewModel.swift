@@ -14,6 +14,10 @@ class SimilarMovieViewModel {
 
     private var similarMovie: SimilarMovie
 
+    private var genresNames: [String]? {
+        return similarMovie.genres?.map({ $0.name })
+    }
+
     var title: String {
         return similarMovie.title
     }
@@ -24,7 +28,7 @@ class SimilarMovieViewModel {
 
     var genres: String? {
 
-        guard let names = similarMovie.genres?.map({ $0.name }) else { return nil }
+        guard let names = genresNames?[0..<2] else { return nil }
 
         return names.joined(separator: ", ")
     }

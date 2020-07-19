@@ -85,9 +85,9 @@ class SimilarMovieCell: UITableViewCell {
 
             posterImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             posterImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            posterImageView.trailingAnchor.constraint(equalTo: primaryLabelStackView.leadingAnchor, constant: -14),
+            posterImageView.trailingAnchor.constraint(equalTo: primaryLabelStackView.leadingAnchor, constant: -8),
             posterImageView.heightAnchor.constraint(equalToConstant: 70),
-            posterImageView.widthAnchor.constraint(equalToConstant: 70),
+            posterImageView.widthAnchor.constraint(equalTo: posterImageView.heightAnchor),
 
             primaryLabelStackView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
