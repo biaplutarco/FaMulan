@@ -13,22 +13,5 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let repository = MovieDataRepository()
-        var movies = [Movie]()
-        
-        repository.loadDetails(of: Constants.TMDB.mulanID) { result in
-            switch result {
-            case .failure(let error):
-                print(error.localizedDescription)
-            case .success(let movie):
-                movies.append(movie)
-                
-                let image = UIImageView()
-                image.load(path: movie.posterPath!)
-                image.fadingGradient(with: .black, at: self.view.frame)
-                self.view = image
-            }
-        }
     }
 }

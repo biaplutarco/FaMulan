@@ -12,8 +12,13 @@ class MovieDetailsViewModel {
 
     private let repository: MovieDataRepository
 
-    private var posterPath: String = ""
+    private var posterPath: String?
     private var similarMovies = [Movie]()
+    private var mulan: Movie?
+
+    var numberOfRows: Int {
+        return similarMovies.count
+    }
 
     init(repository: MovieDataRepository = MovieDataRepository()) {
         self.repository = repository
@@ -29,15 +34,33 @@ class MovieDetailsViewModel {
                 print(error.localizedDescription)
 
             case .success(let movie):
+                self.mulan = movie
             }
         }
     }
 
     func loadMoviePoster(completion: @escaping ((UIImage) -> Void)) {
 
+        guard let posterPath = self.posterPath else {
+
+            loadMulanDetails()
+            return
+        }
+
         repository.loadMoviePoster(path: posterPath) { image in
 
             completion(image)
         }
+    }
+
+    func headerViewMovel() -> MovieDetailsHeaderView {
+
+        guard let mulan = self.mulan else {
+
+            loadMulanDetails()
+            return
+        }
+
+        return MovieDetailsHeaderView(title: mulan.title, popularity: mulan.popularity, likes: mulan.voteCount)
     }
 }
