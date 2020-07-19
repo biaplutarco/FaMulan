@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieDetailsHeaderView: UITableViewHeaderFooterView {
+class MovieDetailsHeaderView: UIView {
 
     private var titleLabel = UILabel()
     private var likesLabel = UILabel()
@@ -21,6 +21,8 @@ class MovieDetailsHeaderView: UITableViewHeaderFooterView {
         return stackView
     }()
 
+    private var viewModel: MovieDetailsHeaderViewModel?
+
     private lazy var primaryLabelStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [titleLabel, secondaryLabelStackView])
         stackView.axis = .vertical
@@ -28,12 +30,18 @@ class MovieDetailsHeaderView: UITableViewHeaderFooterView {
         return stackView
     }()
 
-    var viewModel: MovieDetailsHeaderViewModel? {
-        didSet {
-            setupView()
-        }
-    }
+    init(viewModel: MovieDetailsHeaderViewModel? = nil) {
+        self.viewModel = viewModel
 
+        super.init(frame: .zero)
+
+        setupView()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private func setupView() {
 
         addSubview(primaryLabelStackView)

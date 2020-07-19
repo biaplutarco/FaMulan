@@ -22,6 +22,8 @@ class MovieDetailsViewModel {
 
     init(repository: MovieDataRepository = MovieDataRepository()) {
         self.repository = repository
+
+        loadMulanDetails()
     }
 
     func loadMulanDetails() {
@@ -41,11 +43,7 @@ class MovieDetailsViewModel {
 
     func loadMoviePoster(completion: @escaping ((UIImage) -> Void)) {
 
-        guard let posterPath = self.posterPath else {
-
-            loadMulanDetails()
-            return
-        }
+        guard let posterPath = self.posterPath else { return }
 
         repository.loadMoviePoster(path: posterPath) { image in
 
@@ -57,14 +55,10 @@ class MovieDetailsViewModel {
         return SimilarMovieViewModel(similarMovies[index])
     }
 
-    func headerViewMovel() -> MovieDetailsHeaderViewModel {
+    func headerViewMovel() -> MovieDetailsHeaderViewModel? {
 
-        guard let mulan = self.mulan else {
+        guard let mulan = self.mulan else { return nil }
 
-            loadMulanDetails()
-            return
-        }
-
-        return MovieDetailsHeaderView(mulan)
+        return MovieDetailsHeaderViewModel(mulan)
     }
 }
