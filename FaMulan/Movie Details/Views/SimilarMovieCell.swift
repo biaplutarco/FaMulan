@@ -46,7 +46,7 @@ class SimilarMovieCell: UITableViewCell {
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: false)
+        super.setSelected(false, animated: false)
     }
 
     private func setupView() {
