@@ -91,7 +91,11 @@ extension MovieDetailsView: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueCell(of: SimilarMovieCell.self, forIndexPath: viewModel.similarMovie(for: indexPath.row))
+
+        let cell = tableView.dequeueCell(of: SimilarMovieCell.self, forIndexPath: indexPath)
+        cell.viewModel = viewModel.similarMovieViewModel(for: indexPath.row)
+        
+        return cell
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

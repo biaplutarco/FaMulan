@@ -53,7 +53,11 @@ class MovieDetailsViewModel {
         }
     }
 
-    func headerViewMovel() -> MovieDetailsHeaderView {
+    func similarMovieViewModel(for index: Int) -> SimilarMovieViewModel {
+        return SimilarMovieViewModel(similarMovies[index])
+    }
+
+    func headerViewMovel() -> MovieDetailsHeaderViewModel {
 
         guard let mulan = self.mulan else {
 
@@ -61,6 +65,6 @@ class MovieDetailsViewModel {
             return
         }
 
-        return MovieDetailsHeaderView(title: mulan.title, popularity: mulan.popularity, likes: mulan.voteCount)
+        return MovieDetailsHeaderView(mulan)
     }
 }

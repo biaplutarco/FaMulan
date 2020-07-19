@@ -14,10 +14,10 @@ class SimilarMovieCell: UITableViewCell {
 
     private var titleLabel = UILabel()
     private var releaseDateLabel = UILabel()
-    private var gerneLabel = UILabel()
+    private var genresLabel = UILabel()
 
     private lazy var secondaryLabelStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [releaseDateLabel, gerneLabel])
+        let stackView = UIStackView(arrangedSubviews: [releaseDateLabel, genresLabel])
         stackView.axis = .horizontal
 
         return stackView
@@ -29,6 +29,12 @@ class SimilarMovieCell: UITableViewCell {
 
         return stackView
     }()
+
+    var viewModel: SimilarMovieViewModel? {
+        didSet {
+            setupView()
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -43,7 +49,26 @@ class SimilarMovieCell: UITableViewCell {
         addSubview(posterImageView)
         addSubview(primaryLabelStackView)
 
+        setupImageView()
         constraints()
+    }
+
+    func setupLabels() {
+
+        titleLabel.text = viewModel?.title
+        releaseDateLabel.text = viewModel?.releaseDate
+        genresLabel.text = viewModel?.genres
+    }
+
+    func setupImageView() {
+
+        viewModel?.loadMoviePoster { image in
+
+            DispatchQueue.main.async {
+            
+                self.posterImageView.image = image
+            }
+        }
     }
 
     private func constraints() {
