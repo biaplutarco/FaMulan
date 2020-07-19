@@ -33,6 +33,7 @@
 		27C85DFD24C360CC00A79007 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C85DFC24C360CC00A79007 /* APIError.swift */; };
 		27C85DFF24C3629900A79007 /* MovieDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C85DFE24C3629900A79007 /* MovieDataRepository.swift */; };
 		27C85E0124C362E400A79007 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C85E0024C362E400A79007 /* Provider.swift */; };
+		27FBFBB524C3E2E50059A8CC /* UILabel+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FBFBB424C3E2E50059A8CC /* UILabel+Style.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		27C85DFC24C360CC00A79007 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		27C85DFE24C3629900A79007 /* MovieDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDataRepository.swift; sourceTree = "<group>"; };
 		27C85E0024C362E400A79007 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		27FBFBB424C3E2E50059A8CC /* UILabel+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Style.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 			children = (
 				27C69F4324C38167000591F4 /* UIImageView+FadingGradient.swift */,
 				27C69F4824C38D38000591F4 /* UITableView+Dequeue+Register.swift */,
+				27FBFBB424C3E2E50059A8CC /* UILabel+Style.swift */,
 			);
 			path = Extention;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				27C85DFD24C360CC00A79007 /* APIError.swift in Sources */,
 				27C69F4624C38AC4000591F4 /* MovieDetailsView.swift in Sources */,
 				27C69F3B24C36876000591F4 /* GerneDataRepository.swift in Sources */,
+				27FBFBB524C3E2E50059A8CC /* UILabel+Style.swift in Sources */,
 				276B603824C2826D008310F7 /* FaMulan.xcdatamodeld in Sources */,
 				27C69F5624C3CE88000591F4 /* MovieDetailsHeaderViewModel.swift in Sources */,
 				27C85DFF24C3629900A79007 /* MovieDataRepository.swift in Sources */,

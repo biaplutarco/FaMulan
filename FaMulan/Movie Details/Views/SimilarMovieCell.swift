@@ -12,9 +12,9 @@ class SimilarMovieCell: UITableViewCell {
 
     private var posterImageView = UIImageView()
 
-    private var titleLabel = UILabel()
-    private var releaseDateLabel = UILabel()
-    private var genresLabel = UILabel()
+    private var titleLabel = UILabel(size: 16, bold: true)
+    private var releaseDateLabel = UILabel(size: 14, bold: false)
+    private var genresLabel = UILabel(size: 14, bold: false)
 
     private lazy var secondaryLabelStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [releaseDateLabel, genresLabel])
@@ -46,6 +46,8 @@ class SimilarMovieCell: UITableViewCell {
 
     private func setupView() {
 
+        backgroundColor = .clear
+
         addSubview(posterImageView)
         addSubview(primaryLabelStackView)
 
@@ -63,6 +65,8 @@ class SimilarMovieCell: UITableViewCell {
 
     func setupImageView() {
 
+        posterImageView.contentMode = .scaleAspectFit
+
         viewModel?.loadMoviePoster { image in
 
             DispatchQueue.main.async {
@@ -79,13 +83,13 @@ class SimilarMovieCell: UITableViewCell {
 
         NSLayoutConstraint.activate([
 
-            posterImageView.topAnchor.constraint(equalTo: topAnchor, constant: 12),
-            posterImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
-            posterImageView.trailingAnchor.constraint(equalTo: primaryLabelStackView.leadingAnchor, constant: 14),
-            posterImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12),
+            posterImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            posterImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            posterImageView.trailingAnchor.constraint(equalTo: primaryLabelStackView.leadingAnchor, constant: -14),
+            posterImageView.heightAnchor.constraint(equalToConstant: 50),
+            posterImageView.widthAnchor.constraint(equalToConstant: 50),
 
-            primaryLabelStackView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            primaryLabelStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12)
+            primaryLabelStackView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
 }
