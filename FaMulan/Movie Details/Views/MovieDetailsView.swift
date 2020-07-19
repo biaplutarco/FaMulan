@@ -53,13 +53,16 @@ class MovieDetailsView: UIView {
 
     private func setupImageView() {
 
-        imageView.fadingGradient(with: .black, at: frame)
+        imageView.fadingGradient(with: .black,
+                                 at: CGRect(origin: frame.origin,
+                                            size: CGSize(width: frame.width, height: frame.height/2)))
 
-        viewModel.loadMoviePoster { image in
+        viewModel.reloadImage = {
 
             DispatchQueue.main.async {
             
-                self.imageView.image = image
+                self.imageView.image = self.viewModel.image
+                self.tableView.reloadData()
             }
         }
     }
@@ -87,6 +90,7 @@ class MovieDetailsView: UIView {
 extension MovieDetailsView: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(viewModel.numberOfRows)
         return viewModel.numberOfRows
     }
 

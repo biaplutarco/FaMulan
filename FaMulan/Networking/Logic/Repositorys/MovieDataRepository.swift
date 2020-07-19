@@ -22,7 +22,7 @@ struct MovieDataRepository: MovieRepository {
         provider.request(target: .movie(.details(id: movieID)), completion: completion)
     }
 
-    func loadMoviesSimilar(to movieID: String, completion: @escaping (Result<Movie, APIError>) -> Void) {
+    func loadMoviesSimilar(to movieID: String, completion: @escaping (Result<[Movie], APIError>) -> Void) {
         provider.request(target: .movie(.similarMovies(to: movieID)), completion: completion)
     }
 

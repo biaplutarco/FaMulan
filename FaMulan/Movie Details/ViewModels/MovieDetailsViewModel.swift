@@ -12,9 +12,16 @@ class MovieDetailsViewModel {
 
     private let repository: MovieDataRepository
 
-    private var posterPath: String?
     private var similarMovies = [Movie]()
     private var mulan: Movie?
+
+    var image: UIImage? {
+        didSet {
+            reloadImage?()
+        }
+    }
+
+    var reloadImage: (() -> Void)?
 
     var numberOfRows: Int {
         return similarMovies.count
@@ -26,7 +33,7 @@ class MovieDetailsViewModel {
         loadMulanDetails()
     }
 
-    func loadMulanDetails() {
+    private func loadMulanDetails() {
 
         repository.loadDetails(of: Constants.TMDB.mulanID) { result in
 
@@ -37,17 +44,35 @@ class MovieDetailsViewModel {
 
             case .success(let movie):
                 self.mulan = movie
+
+                self.loadMoviePoster()
+                self.loadSimilarMovies()
             }
         }
     }
 
-    func loadMoviePoster(completion: @escaping ((UIImage) -> Void)) {
+    private func loadSimilarMovies() {
 
-        guard let posterPath = self.posterPath else { return }
+        repository.loadMoviesSimilar(to: Constants.TMDB.mulanID) { result in
+
+            switch result {
+
+            case .failure(let error):
+                print(error.localizedDescription)
+
+            case .success(let movies):
+                self.similarMovies = movies
+            }
+        }
+    }
+
+    private func loadMoviePoster() {
+
+        guard let posterPath = self.mulan?.posterPath else { return }
 
         repository.loadMoviePoster(path: posterPath) { image in
 
-            completion(image)
+            self.image = image
         }
     }
 
