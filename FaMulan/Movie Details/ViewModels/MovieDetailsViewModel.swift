@@ -10,10 +10,12 @@ import UIKit
 
 class MovieDetailsViewModel {
 
-    private let repository: MovieDataRepository
+    private let movieRepository: MovieDataRepository
+    private let genreRepository: GenreDataRepository
 
     private var similarMovies = [SimilarMovie]()
     private var mulan: Movie?
+    private var genres = [Genre]()
 
     var image: UIImage? {
         didSet {
@@ -27,15 +29,18 @@ class MovieDetailsViewModel {
         return similarMovies.count
     }
 
-    init(repository: MovieDataRepository = MovieDataRepository()) {
-        self.repository = repository
+    init(movieRepository: MovieDataRepository = MovieDataRepository(),
+         genreRepository: GenreDataRepository = GenreDataRepository()) {
+
+        self.movieRepository = movieRepository
+        self.genreRepository = genreRepository
 
         loadMulanDetails()
     }
 
     private func loadMulanDetails() {
 
-        repository.loadDetails(of: Constants.TMDB.mulanID) { result in
+        movieRepository.loadDetails(of: Constants.TMDB.mulanID) { result in
 
             switch result {
 
@@ -45,6 +50,7 @@ class MovieDetailsViewModel {
             case .success(let movie):
                 self.mulan = movie
 
+                self.loadGenres()
                 self.loadMoviePoster()
                 self.loadSimilarMovies()
             }
@@ -53,7 +59,7 @@ class MovieDetailsViewModel {
 
     private func loadSimilarMovies() {
 
-        repository.loadMoviesSimilar(to: Constants.TMDB.mulanID) { result in
+        movieRepository.loadMoviesSimilar(to: Constants.TMDB.mulanID) { result in
 
             switch result {
 
@@ -66,18 +72,37 @@ class MovieDetailsViewModel {
         }
     }
 
+    private func loadGenres() {
+
+        genreRepository.loadGernes { result in
+
+            switch result {
+
+            case .failure(let error):
+                print(error.localizedDescription)
+
+            case .success(let genres):
+                self.genres = genres.genres
+            }
+        }
+    }
+
     private func loadMoviePoster() {
 
         guard let posterPath = self.mulan?.posterPath else { return }
 
-        repository.loadMoviePoster(path: posterPath) { image in
+        movieRepository.loadMoviePoster(path: posterPath) { image in
 
             self.image = image
         }
     }
 
     func similarMovieViewModel(for index: Int) -> SimilarMovieViewModel {
-        return SimilarMovieViewModel(similarMovies[index])
+
+        var similarMovie = similarMovies[index]
+        similarMovie.genres = genres.filter({ similarMovie.genresID.contains($0.id) })
+        
+        return SimilarMovieViewModel(similarMovie)
     }
 
     func headerViewMovel() -> MovieDetailsHeaderViewModel? {

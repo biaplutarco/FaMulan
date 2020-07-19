@@ -24,6 +24,7 @@ struct SimilarMovie: Codable {
     var posterPath: String?
     var releaseDate: String
     var genresID: [Int]
+    var genres: [Genre]?
 
     enum CodingKeys: String, CodingKey {
 

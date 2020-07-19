@@ -9,7 +9,7 @@
 import Foundation
 import Moya
 
-struct GerneDataRepository: GenreRepository {
+struct GenreDataRepository: GenreRepository {
 
     private var provider: Provider<TMDB> {
 
@@ -18,7 +18,7 @@ struct GerneDataRepository: GenreRepository {
         return Provider<TMDB>(provider: provider)
     }
 
-    func loadGernes(completion: @escaping (Result<[Genre], APIError>) -> Void) {
+    func loadGernes(completion: @escaping (Result<Genres, APIError>) -> Void) {
         provider.request(target: .genreList, completion: completion)
     }
 }

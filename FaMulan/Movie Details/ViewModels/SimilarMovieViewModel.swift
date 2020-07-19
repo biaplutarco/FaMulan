@@ -12,32 +12,32 @@ class SimilarMovieViewModel {
 
     private let repository: MovieDataRepository
 
-    private var movie: SimilarMovie
+    private var similarMovie: SimilarMovie
 
     var title: String {
-        return movie.title
+        return similarMovie.title
     }
 
     var releaseDate: String {
-        return movie.releaseDate
+        return similarMovie.releaseDate
     }
 
-    var genres: String {
+    var genres: String? {
 
-        let names = movie.genresID.map { String($0) }
+        guard let names = similarMovie.genres?.map({ $0.name }) else { return nil }
 
         return names.joined(separator: ", ")
     }
 
-    init(_ movie: SimilarMovie, repository: MovieDataRepository = MovieDataRepository()) {
+    init(_ similarMovie: SimilarMovie, repository: MovieDataRepository = MovieDataRepository()) {
 
         self.repository = repository
-        self.movie = movie
+        self.similarMovie = similarMovie
     }
 
     func loadMoviePoster(completion: @escaping ((UIImage) -> Void)) {
 
-        guard let posterPath = self.movie.posterPath else { return }
+        guard let posterPath = self.similarMovie.posterPath else { return }
 
         repository.loadMoviePoster(path: posterPath) { image in
 

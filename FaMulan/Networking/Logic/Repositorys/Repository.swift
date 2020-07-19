@@ -16,5 +16,5 @@ protocol MovieRepository {
 }
 
 protocol GenreRepository {
-    func loadGernes(completion: @escaping(Result<[Genre], APIError>) -> Void)
+    func loadGernes(completion: @escaping(Result<Genres, APIError>) -> Void)
 }
