@@ -56,7 +56,7 @@ class MovieDetailsView: UIView {
         imageView.contentMode = .scaleAspectFill
         imageView.fadingGradient(with: .black,
                                  at: CGRect(origin: frame.origin,
-                                            size: CGSize(width: frame.width, height: frame.height*0.4)))
+                                            size: CGSize(width: frame.width, height: frame.height*0.45)))
 
         viewModel.reloadImage = {
 
@@ -83,7 +83,7 @@ class MovieDetailsView: UIView {
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            tableView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.6)
+            tableView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.55)
         ])
     }
 }
