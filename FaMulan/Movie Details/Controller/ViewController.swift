@@ -13,5 +13,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        view = MovieDetailsView(viewModel: MovieDetailsViewModel(), frame: view.frame)
     }
 }

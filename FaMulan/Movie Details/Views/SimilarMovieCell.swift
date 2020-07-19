@@ -49,6 +49,7 @@ class SimilarMovieCell: UITableViewCell {
         addSubview(posterImageView)
         addSubview(primaryLabelStackView)
 
+        setupLabels()
         setupImageView()
         constraints()
     }
